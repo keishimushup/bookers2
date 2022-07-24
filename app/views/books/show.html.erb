@@ -1,21 +1,51 @@
+<h2>User info</h2>
+<%= image_tag @books.user.get_profile_image(100,100) %>
+
+<table>
+    <tbody>
+        <tr>
+            <th>name</th>
+            <th><%= @books.user.name %></th>
+        </tr>
+        <tr>
+            <th>introduction</th>
+            <th><%= @books.user.introduction %></th>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+  <%= link_to "設定アイコン", edit_user_path(current_user.id) %>
+</div>
+
+
+<h2>New book</h2>
+  <%= form_with model: @book do |f| %>
+    <h4>Title</h4>
+      <%= f.text_field :title %>
+    <h4>Opinion</h4>
+      <%= f.text_area :body %>
+    <%= f.submit 'Create Book' %>
+  <% end %>
+
   <h2>Book detail</h2>
   <table>
     <tr>
       <td>
-        <%= link_to user_path(@book.id) do %>
-         <%= image_tag @book.user.get_profile_image(100,100) %>
+        <%= link_to user_path(@books.id) do %>
+         <%= image_tag @books.user.get_profile_image(100,100) %>
         <% end %>
         <br>
-        <%= link_to user_path(@book.user.id) do %>
-         <%= @book.user.name %>
+        <%= link_to user_path(@books.user.id) do %>
+         <%= @books.user.name %>
         <% end %>
       </td>
       <td>
-        <%= link_to book_path(@book.id) do %>
-         <%= @book.title %>
+        <%= link_to book_path(@books.id) do %>
+         <%= @books.title %>
          <% end %>
         </td>
-      <td><%= @book.body %></td>
+      <td><%= @books.body %></td>
 
     </tr>
   </table>

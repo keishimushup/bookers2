@@ -1,3 +1,23 @@
+<h2>User info</h2>
+<%= image_tag @user.get_profile_image(100,100) %>
+
+<table>
+    <tbody>
+        <tr>
+            <th>name</th>
+            <th><%= @user.name %></th>
+        </tr>
+        <tr>
+            <th>introduction</th>
+            <th><%= @user.introduction %></th>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+  <%= link_to "設定アイコン", edit_user_path(current_user.id) %>
+</div>
+
 <h2>New book</h2>
   <%= form_with model: @book do |f| %>
     <h4>Title</h4>
@@ -6,7 +26,7 @@
       <%= f.text_area :body %>
     <%= f.submit 'Create Book' %>
   <% end %>
-  
+
   <h2>Books</h2>
   <table>
     <thead>
@@ -17,7 +37,7 @@
        <td colspan="3"></td>
       </tr>
     </thead>
-    
+
     <tbody>
      <% @books.each do |book| %>
      <tr>
@@ -37,5 +57,4 @@
       </tr>
       <% end %>
     </table>
-    
-  
+
