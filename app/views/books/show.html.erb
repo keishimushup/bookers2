@@ -15,11 +15,7 @@
 </table>
 
 <div>
-  <% if @books.user == current_user %>
-   <%= link_to "設定アイコン", edit_user_path(current_user.id) %>
-  <% else %>
-   <%= link_to "設定アイコン", user_path(current_user.id) %>
-  <% end %>
+   <%= link_to "設定アイコン", edit_user_path(@user.id) %>
 </div>
 
 
@@ -31,6 +27,12 @@
       <%= f.text_area :body %>
     <%= f.submit 'Create Book' %>
   <% end %>
+  
+  <%= render 'list', user: @books %>
+  
+  <%= render 'list', user: @user %>
+
+　<%= render 'list', book: @book %>
 
   <h2>Book detail</h2>
   <table>
