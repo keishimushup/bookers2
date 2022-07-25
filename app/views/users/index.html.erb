@@ -15,7 +15,11 @@
 </table>
 
 <div>
-  <%= link_to "設定アイコン", edit_user_path(current_user.id) %>
+  <% if @user == current_user %>
+   <%= link_to "設定アイコン", edit_user_path(current_user.id) %>
+  <% else %>
+   <%= link_to "設定アイコン", user_path(current_user.id) %>
+  <% end %>
 </div>
 
 <h2>New book</h2>
