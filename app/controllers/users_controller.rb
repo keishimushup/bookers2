@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :confirm_user, only: [:edit]
-  
+
   def index
     @users = User.all
     @user = current_user
