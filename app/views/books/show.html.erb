@@ -15,7 +15,9 @@
 </table>
 
 <div>
-   <%= link_to "設定アイコン", edit_user_path(@user.id) %>
+   <%= link_to edit_user_path(@user.id) do %>
+    <i class="fas fa-user-cog"></i>
+   <% end %>
 </div>
 
 
@@ -27,9 +29,9 @@
       <%= f.text_area :body %>
     <%= f.submit 'Create Book' %>
   <% end %>
-  
+
   <%= render 'list', user: @books %>
-  
+
   <%= render 'list', user: @user %>
 
 　<%= render 'list', book: @book %>
